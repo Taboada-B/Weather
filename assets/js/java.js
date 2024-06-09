@@ -4,28 +4,33 @@ const fetchButton = document.getElementById('searchBtn');
 
 function cityInput(event) {
     event.preventDefault();
-
-
-    console.log('hello')
-
-
+    let city = document.querySelector('#city-input').value.trim();
+    console.log('city', city);
+    
     apiFetch()
 }
 
 
-function apiFetch() {
-    // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-    // api key : a3daa86f12fe3680bfa21c25ee469546
-    // obtained this code at url: https://openweathermap.org/forecast5
-    // example call: api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
-    // const requestUrl = 'api.openweathermap.org/data/2.5/forecast?id=Denver&appid=a3daa86f12fe3680bfa21c25ee469546&units=imperial';
-
-    // fetch(requestUrl).then(function(response) {
-    //     return response.json();
-    // });
-    // console.log(response)
-    console.log('hello again')
-}
+// function apiFetch() {
+//     // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+//     // api key : a3daa86f12fe3680bfa21c25ee469546
+//     // obtained this code at url: https://openweathermap.org/forecast5
+//     // example call: api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
+//     const requestUrl = 'api.openweathermap.org/data/2.5/forecast?id=Denver&appid=';
+// const apiKey = a3daa86f12fe3680bfa21c25ee469546;
+//     fetch(`${requestUrl} ${apiKey}`).then(function(response) {
+//         if (response.status === 200) {
+            
+//             return response.json
+//         }
+//         else{
+//             return console.log(error)
+//         }
+        
+//     });
+//     console.log(response)
+//     console.log('hello again')
+// }
 
 
 fetchButton.addEventListener('click', cityInput);
@@ -33,7 +38,34 @@ fetchButton.addEventListener('click', cityInput);
 
 
 
+
+
+
 // // not my code below
+
+// const repoList = document.querySelector('ul');
+// const fetchButton = document.getElementById('fetch-button');
+
+// function getApi() {
+//   // replace `octocat` with anyone else's GitHub username
+//   const requestUrl = 'https://api.github.com/users/octocat/repos';
+
+//   fetch(requestUrl).then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       for (let i = 0; i < data.length; i++) {
+//         const listItem = document.createElement('li');
+//         listItem.textContent = data[i].html_url;
+//         repoList.appendChild(listItem);
+//       }
+//     });
+// }
+
+
+
+
+
 // const tableBody = document.getElementById('repo-table');
 
 // function getApi() {
