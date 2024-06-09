@@ -1,17 +1,35 @@
 const fetchButton = document.getElementById('searchBtn');
 
+// receiving user input
 
-function apiFetch (){
-    // obtained this code at url: https://openweathermap.org/api/weather-map-2
-    // example call: api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
-const requestUrl = 'http://maps.openweathermap.org/maps/2.0/weather/{op}/{z}/{x}/{y}?appid=a3daa86f12fe3680bfa21c25ee469546';
-
+function cityInput(event) {
+    event.preventDefault();
 
 
+    console.log('hello')
+
+
+    apiFetch()
 }
 
 
-fetchButton.addEventListener('click', apiFetch());
+function apiFetch() {
+    // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+    // api key : a3daa86f12fe3680bfa21c25ee469546
+    // obtained this code at url: https://openweathermap.org/forecast5
+    // example call: api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
+    // const requestUrl = 'api.openweathermap.org/data/2.5/forecast?id=Denver&appid=a3daa86f12fe3680bfa21c25ee469546&units=imperial';
+
+    // fetch(requestUrl).then(function(response) {
+    //     return response.json();
+    // });
+    // console.log(response)
+    console.log('hello again')
+}
+
+
+fetchButton.addEventListener('click', cityInput);
+
 
 
 
@@ -30,7 +48,7 @@ fetchButton.addEventListener('click', apiFetch());
 //     .then(function (data) {
 //       console.log(data); // this is now an array of objects
 //       // ? We use a `for...of` loop here because it's a little less code than a traditional `for` loop. We also don't need to keep track of the index `(i)`.
-//       for (const repo of data) { 
+//       for (const repo of data) {
 //         // Creating elements, tablerow, tabledata, and anchor
 //         const createTableRow = document.createElement('tr');
 //         const tableData = document.createElement('td');
@@ -50,3 +68,4 @@ fetchButton.addEventListener('click', apiFetch());
 // }
 
 // fetchButton.addEventListener('click', getApi);
+
