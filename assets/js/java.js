@@ -49,8 +49,10 @@ function renderData(data){
             document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
             document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
             document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
-            // let date = 
-            document.getElementById('date0').textContent = `${data.list[0].dt_txt}`;
+            let dateFull = data.list[0].dt_txt
+            let dateParts = dateFull.split(' ');
+            console.log(dateParts); 
+            document.getElementById('date0').textContent = dateParts[0];
 // rendering 5 day forcast
 // list[0] to list [1] is 3 hours list [0] to list [7] 24hrs
 // day1
