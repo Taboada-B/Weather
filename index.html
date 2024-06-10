@@ -20,8 +20,9 @@
     </header>
     <main>
         <div class="row align-items-start">
-            <div class="col-auto">
+            <aside class="col-2">
                 <!-- search box and button -->
+
                 <form id="cityForm">
                     <label for="city-input">Search for City:</label>
                     <input type="text" id="city-input" name="city-input" class="form-control"
@@ -29,22 +30,47 @@
                     <button type="submit" class=" btn btn-secondary m-2 p-1 " id="searchBtn">Search</button>
                 </form>
                 <!-- past searches list -->
-                <ul id="pastSearch" class="border-top container-fluid m-1">
+                <ul id="pastSearch" class="container-fluid m-1 border-top p-1">
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
+                    <ol>placeholder city</ol>
 
                 </ul>
+            </aside>
+
+            <div class="col-md-8 m-1">
+                <div class="border m-1 p-2">
+                    <h1>Selected City: <span id="city-output"></span></h1>
+                    <h5>Today's Date: <span id="date2Day"></span> </h5>
+                    <p>Temperature: <span id="curTemp"></span></p>
+                    <p>Wind: <span id="curWind"></span> </p>
+                    <p>Humidty: <span id="curHumid"></span> </p>
+                    <p id="error"> </p>
+                </div>
+                <div class="border mt-2 p-2">
+                    <h2>5 Day Forecast</h2>
+                    <ul>
+                        <ol>day1</ol>
+                        <ol>day1</ol>
+                        <ol>day1</ol>
+                        <ol>day1</ol>
+                    </ul>
+                </div>
             </div>
 
-            <div class="col-md-8 border m-1">
-                <h1>Selected City: <span id="city-output"></span></h1>
-                <h5>Today's Date: <span id="date2Day"></span> </h5>
-                <p>Temperature: <span id="curTemp"></span></p>
-                <p>Wind: <span id="curWind"></span> </p>
-                <p>Humidty: <span id="curHumid"></span> </p>
-                <p id="error"> </p>
-            </div>
+
+
+
 
         </div>
-      
+
+
 
     </main>
 
@@ -53,10 +79,3 @@
 </body>
 
 </html>
-
-<!-- <form>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname"> -->
-
-<!-- <input id="project-name-input" type="text" class="form-control" placeholder="Project Name" aria-label="Project Name"
- -->
