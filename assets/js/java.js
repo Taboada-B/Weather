@@ -44,48 +44,50 @@ function apiFetch() {
 };
 
 function renderData(data) {
-
+    // should make for loop if I have time
     // rendering current data to page: current temp, current wind, current humidity, today's date (day0).
     let dateParts0 = data.list[0].dt_txt.split(' ');
     document.getElementById('date0').textContent = dateParts0[0];
-    console.log('weather status', data.list[0].weather[0].main)
     document.getElementById('icon0').textContent = data.list[0].weather[0].main;
     document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
     document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
     document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
-    // reformating formatting date
 
     // rendering 5 day forcast
     // list[0] to list [1] is 3 hours list [0] to list [7] 24hrs
-    // should make for loop if I have time
+
     // day1
     let dateParts1 = data.list[7].dt_txt.split(' ');
     document.getElementById('date1').textContent = dateParts1[0];
-
+    document.getElementById('icon1').textContent = data.list[7].weather[0].main;
     document.getElementById('temp1').textContent = `${data.list[7].main.temp} °F`;
     document.getElementById('wind1').textContent = `${data.list[7].wind.speed} mph`;
     document.getElementById('humidity1').textContent = `${data.list[7].main.humidity} %`;
     //day 2
     let dateParts2 = data.list[15].dt_txt.split(' ');
     document.getElementById('date2').textContent = dateParts2[0];
+    document.getElementById('icon2').textContent = data.list[15].weather[0].main;
     document.getElementById('temp2').textContent = `${data.list[15].main.temp} °F`;
     document.getElementById('wind2').textContent = `${data.list[15].wind.speed} mph`;
     document.getElementById('humidity2').textContent = `${data.list[15].main.humidity} %`;
     //day 3
     let dateParts3 = data.list[23].dt_txt.split(' ');
     document.getElementById('date3').textContent = dateParts3[0];
+    document.getElementById('icon3').textContent = data.list[23].weather[0].main;
     document.getElementById('temp3').textContent = `${data.list[23].main.temp} °F`;
     document.getElementById('wind3').textContent = `${data.list[23].wind.speed} mph`;
     document.getElementById('humidity3').textContent = `${data.list[23].main.humidity} %`;
     //day 4
     let dateParts4 = data.list[31].dt_txt.split(' ');
     document.getElementById('date4').textContent = dateParts4[0];
+    document.getElementById('icon4').textContent = data.list[31].weather[0].main;
     document.getElementById('temp4').textContent = `${data.list[31].main.temp} °F`;
     document.getElementById('wind4').textContent = `${data.list[31].wind.speed} mph`;
     document.getElementById('humidity4').textContent = `${data.list[31].main.humidity} %`;
     //day 5
     let dateParts5 = data.list[39].dt_txt.split(' ');
     document.getElementById('date5').textContent = dateParts5[0];
+    document.getElementById('icon5').textContent = data.list[39].weather[0].main;
     document.getElementById('temp5').textContent = `${data.list[39].main.temp} °F`;
     document.getElementById('wind5').textContent = `${data.list[39].wind.speed} mph`;
     document.getElementById('humidity5').textContent = `${data.list[39].main.humidity} %`;
@@ -96,66 +98,6 @@ function renderData(data) {
 const fetchButton = document.getElementById('searchBtn');
 fetchButton.addEventListener('click', cityInputFunc);
 
-
-// // not my code below
-
-// const repoList = document.querySelector('ul');
-// const fetchButton = document.getElementById('fetch-button');
-
-// function getApi() {
-//   // replace `octocat` with anyone else's GitHub username
-//   const requestUrl = 'https://api.github.com/users/octocat/repos';
-
-//   fetch(requestUrl).then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       for (let i = 0; i < data.length; i++) {
-//         const listItem = document.createElement('li');
-//         listItem.textContent = data[i].html_url;
-//         repoList.appendChild(listItem);
-//       }
-//     });
-// }
-
-
-
-
-
-// const tableBody = document.getElementById('repo-table');
-
-// function getApi() {
-
-//   // fetch request gets a list of all the repos for the node.js organization
-//   const requestUrl = 'https://api.github.com/orgs/nodejs/repos';
-
-//   fetch(requestUrl)
-//     .then(function (response) {
-//       return response.json(); // this is a json string
-//     })
-//     .then(function (data) {
-//       console.log(data); // this is now an array of objects
-//       // ? We use a `for...of` loop here because it's a little less code than a traditional `for` loop. We also don't need to keep track of the index `(i)`.
-//       for (const repo of data) {
-//         // Creating elements, tablerow, tabledata, and anchor
-//         const createTableRow = document.createElement('tr');
-//         const tableData = document.createElement('td');
-//         const link = document.createElement('a');
-
-//         // Setting the text of link and the href of the link
-//         link.textContent = repo.html_url;
-//         link.href = repo.html_url;
-
-//         // Appending the link to the tabledata and then appending the tabledata to the tablerow
-//         // The tablerow then gets appended to the tablebody
-//         tableData.appendChild(link);
-//         createTableRow.appendChild(tableData);
-//         tableBody.appendChild(createTableRow);
-//       }
-//     });
-// }
-
-// fetchButton.addEventListener('click', getApi);
 
 
 // api retunrs these:
