@@ -46,13 +46,15 @@ function apiFetch() {
 
 function renderData(data){
 
- // rendering data to page: current temp, current wind, current humidity, today's date.
+ // rendering current data to page: current temp, current wind, current humidity, today's date.
             document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
             document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
             document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
             document.getElementById('date2Day').textContent = `${data.list[0].main.humidity} %`;
+// rendering 5 day forcast
 
 }
+
 
 
 const fetchButton = document.getElementById('searchBtn');
