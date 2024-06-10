@@ -1,5 +1,3 @@
-const fetchButton = document.getElementById('searchBtn');
-
 
 // receiving user input, appending to title, calling apiFetch()
 
@@ -34,18 +32,11 @@ function apiFetch() {
         })
         //if previous .then is successful, run this
         .then(data => {
-            // Data is an object with api response
-            document.getElementById('error').textContent = 'no errors';
+            // Data is an object from the api
             console.log('the data', data);
-            // let jsonData = JSON.stringify(data, null, 2);
-            // console.log('json data', jsonData);
-            console.log('weather hopefully', data.list[0].main.temp)
-
-            // console.log('is it working?', data.list.main.temp);
-            document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
-            document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
-            document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
-
+            // rendering no error if its working
+            document.getElementById('error').textContent = 'no errors';
+            renderData(data);
         })
         // catch all, display error 
         .catch(error => {
@@ -53,6 +44,18 @@ function apiFetch() {
         });
 };
 
+function renderData(data){
+
+ // rendering data to page: current temp, current wind, current humidity, today's date.
+            document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
+            document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
+            document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
+            document.getElementById('date2Day').textContent = `${data.list[0].main.humidity} %`;
+
+}
+
+
+const fetchButton = document.getElementById('searchBtn');
 fetchButton.addEventListener('click', cityInputFunc);
 
 
