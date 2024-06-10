@@ -27,7 +27,6 @@ function apiFetch() {
             if (!response.ok) {
                 throw new Error('City not found');
             }
-            console.log('if no errors happens');
             return response.json();
         })
         //if previous .then is successful, run this
@@ -50,7 +49,8 @@ function renderData(data){
             document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
             document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
             document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
-            document.getElementById('date0').textContent = `${data.list[0].main.humidity} %`;
+            // let date = 
+            document.getElementById('date0').textContent = `${data.list[0].dt_txt}`;
 // rendering 5 day forcast
 // list[0] to list [1] is 3 hours list [0] to list [7] 24hrs
 // day1
