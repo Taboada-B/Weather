@@ -1,3 +1,9 @@
+function loadCities() {
+
+
+}
+
+
 
 // receiving user input, appending to title, calling apiFetch()
 
@@ -44,7 +50,7 @@ function apiFetch() {
 };
 
 function renderData(data) {
-    // should make for loop if I have time
+    // for loop coming soon! hopefully
     // rendering current data to page: current temp, current wind, current humidity, today's date (day0).
     let dateParts0 = data.list[0].dt_txt.split(' ');
     document.getElementById('date0').textContent = dateParts0[0];
@@ -91,12 +97,22 @@ function renderData(data) {
     document.getElementById('temp5').textContent = `${data.list[39].main.temp} °F`;
     document.getElementById('wind5').textContent = `${data.list[39].wind.speed} mph`;
     document.getElementById('humidity5').textContent = `${data.list[39].main.humidity} %`;
+    
+    // // Attempt to get from localStorage
+    // let pastSearches = localStorage.getItem('cityList');
+    // if (pastSearches === null || pastSearches === undefined) {
+    //     const pastSearches = [];
+    // }
+    // else {
+
+    // }
 
 }
 
 
 const fetchButton = document.getElementById('searchBtn');
 fetchButton.addEventListener('click', cityInputFunc);
+
 
 
 
