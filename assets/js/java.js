@@ -1,10 +1,3 @@
-function loadCities() {
-
-
-}
-
-
-
 // receiving user input, appending to title, calling apiFetch()
 
 function cityInputFunc(event) {
@@ -127,7 +120,8 @@ function saveAndRender(data) {
 // Function to update the past search list in the DOM
 function updatePastSearchList(cityList) {
     const pastSearchList = document.getElementById('pastSearch');
-    pastSearchList.innerHTML = ''; // Clear the list
+    // Clear the list
+    pastSearchList.innerHTML = ''; 
     cityList.forEach(city => {
         //creating li, adding class 
         const listItem = document.createElement('li');
@@ -140,6 +134,7 @@ function updatePastSearchList(cityList) {
 
 const fetchButton = document.getElementById('searchBtn');
 fetchButton.addEventListener('click', cityInputFunc);
+
 
 
 // api retunrs these:
