@@ -43,42 +43,54 @@ function apiFetch() {
         });
 };
 
-function renderData(data){
+function renderData(data) {
 
- // rendering current data to page: current temp, current wind, current humidity, today's date (day0).
-            document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
-            document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
-            document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
-            let dateFull = data.list[0].dt_txt
-            let dateParts = dateFull.split(' ');
-            console.log(dateParts); 
-            document.getElementById('date0').textContent = dateParts[0];
-// rendering 5 day forcast
-// list[0] to list [1] is 3 hours list [0] to list [7] 24hrs
-// day1
-// document.getElementById('day1').textContent = 
-document.getElementById('temp1').textContent = `${data.list[7].main.temp} °F`;
-document.getElementById('wind1').textContent = `${data.list[7].wind.speed} mph`;
-document.getElementById('humidity1').textContent = `${data.list[7].main.humidity} %`;
-//day 2
-document.getElementById('temp2').textContent = `${data.list[15].main.temp} °F`;
-document.getElementById('wind2').textContent = `${data.list[15].wind.speed} mph`;
-document.getElementById('humidity2').textContent = `${data.list[15].main.humidity} %`;
-//day 3
-document.getElementById('temp3').textContent = `${data.list[23].main.temp} °F`;
-document.getElementById('wind3').textContent = `${data.list[23].wind.speed} mph`;
-document.getElementById('humidity3').textContent = `${data.list[23].main.humidity} %`;
-//day 4
-document.getElementById('temp4').textContent = `${data.list[31].main.temp} °F`;
-document.getElementById('wind4').textContent = `${data.list[31].wind.speed} mph`;
-document.getElementById('humidity4').textContent = `${data.list[31].main.humidity} %`;
-//day 5
-document.getElementById('temp5').textContent = `${data.list[39].main.temp} °F`;
-document.getElementById('wind5').textContent = `${data.list[39].wind.speed} mph`;
-document.getElementById('humidity5').textContent = `${data.list[39].main.humidity} %`;
+    // rendering current data to page: current temp, current wind, current humidity, today's date (day0).
+    let dateParts0 = data.list[0].dt_txt.split(' ');
+    document.getElementById('date0').textContent = dateParts0[0];
+    console.log('weather status', data.list[0].weather[0].main)
+    document.getElementById('icon0').textContent = data.list[0].weather[0].main;
+    document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
+    document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
+    document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
+    // reformating formatting date
+
+    // rendering 5 day forcast
+    // list[0] to list [1] is 3 hours list [0] to list [7] 24hrs
+    // should make for loop if I have time
+    // day1
+    let dateParts1 = data.list[7].dt_txt.split(' ');
+    document.getElementById('date1').textContent = dateParts1[0];
+
+    document.getElementById('temp1').textContent = `${data.list[7].main.temp} °F`;
+    document.getElementById('wind1').textContent = `${data.list[7].wind.speed} mph`;
+    document.getElementById('humidity1').textContent = `${data.list[7].main.humidity} %`;
+    //day 2
+    let dateParts2 = data.list[15].dt_txt.split(' ');
+    document.getElementById('date2').textContent = dateParts2[0];
+    document.getElementById('temp2').textContent = `${data.list[15].main.temp} °F`;
+    document.getElementById('wind2').textContent = `${data.list[15].wind.speed} mph`;
+    document.getElementById('humidity2').textContent = `${data.list[15].main.humidity} %`;
+    //day 3
+    let dateParts3 = data.list[23].dt_txt.split(' ');
+    document.getElementById('date3').textContent = dateParts3[0];
+    document.getElementById('temp3').textContent = `${data.list[23].main.temp} °F`;
+    document.getElementById('wind3').textContent = `${data.list[23].wind.speed} mph`;
+    document.getElementById('humidity3').textContent = `${data.list[23].main.humidity} %`;
+    //day 4
+    let dateParts4 = data.list[31].dt_txt.split(' ');
+    document.getElementById('date4').textContent = dateParts4[0];
+    document.getElementById('temp4').textContent = `${data.list[31].main.temp} °F`;
+    document.getElementById('wind4').textContent = `${data.list[31].wind.speed} mph`;
+    document.getElementById('humidity4').textContent = `${data.list[31].main.humidity} %`;
+    //day 5
+    let dateParts5 = data.list[39].dt_txt.split(' ');
+    document.getElementById('date5').textContent = dateParts5[0];
+    document.getElementById('temp5').textContent = `${data.list[39].main.temp} °F`;
+    document.getElementById('wind5').textContent = `${data.list[39].wind.speed} mph`;
+    document.getElementById('humidity5').textContent = `${data.list[39].main.humidity} %`;
 
 }
-
 
 
 const fetchButton = document.getElementById('searchBtn');
