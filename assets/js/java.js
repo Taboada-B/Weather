@@ -1,47 +1,47 @@
 const fetchButton = document.getElementById('searchBtn');
 
-// receiving user input
 
-function cityInput(event) {
+// receiving user input, appending to title, calling apiFetch()
+
+function cityInputFunc(event) {
     event.preventDefault();
-    const cityObject = document.querySelector('#city-input').value.trim();
-    console.log('cityob:', cityObject);
-    const cityString = JSON.stringify(cityObject);
-    console.log('city string:', cityString);
-    
-    localStorage.setItem('city-input', cityString);
-    console.log('localStorage:', 'hello from cityInput function', localStorage);
-
-    // apiFetch()
+    // accepting user input, removing white space, set to variable
+    const cityInput = document.querySelector('#city-input').value.trim();
+    localStorage.setItem('city-input', cityInput);
+    // adding input to the Selected city span
+    let spanEl = document.getElementById('city-output');
+    spanEl.textContent = cityInput;
+    apiFetch()
 }
 
-// function apiFetch() {
-//     // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-//     // api key : a3daa86f12fe3680bfa21c25ee469546
-//     // obtained this code at url: https://openweathermap.org/forecast5
-//     // example call: api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
-//     const apiKey = a3daa86f12fe3680bfa21c25ee469546;
-//     const requestUrl = `api.openweathermap.org/data/2.5/forecast?id=${city}&appid=${apiKey}`;
-//     console.log(requestUrl);
+function apiFetch() {
+    // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+    // api key : a3daa86f12fe3680bfa21c25ee469546
+    // obtained this code at url: https://openweathermap.org/forecast5
+    // example call: api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
+    let cityInput = localStorage.getItem('city-input');
+    const apiKey = 'a3daa86f12fe3680bfa21c25ee469546';
+    const requestUrl = `api.openweathermap.org/data/2.5/forecast?id=${cityInput}&appid=${apiKey}`;
 
-//     fetch(requestUrl).then(function(response) {
-//         // if (response.status === 200) {
-            
-//         //     return response.json
-//         // }
-//         // else{
-//         //     return console.log(error)
-//         // }
-//          console.log(response);
-//          console.log('hello again1')
-//     });
-   
-    
-//     console.log('hello again2')
-// }
+    console.log(requestUrl);
+    // fetch(requestUrl).then(function(response) {
+    //     // if (response.status === 200) {
+
+    //     //     return response.json
+    //     // }
+    //     // else{
+    //     //     return console.log(error)
+    //     // }
+    //      console.log(response);
+    //      console.log('hello again1')
+    // });
 
 
-fetchButton.addEventListener('click', cityInput);
+    console.log('hello again2')
+}
+
+
+fetchButton.addEventListener('click', cityInputFunc);
 
 
 
