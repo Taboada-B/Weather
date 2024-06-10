@@ -18,27 +18,30 @@ function apiFetch() {
     // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
     // api key : a3daa86f12fe3680bfa21c25ee469546
     // obtained this code at url: https://openweathermap.org/forecast5
-    // example call: api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
+    // example call: api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&appid={API key}
     let cityInput = localStorage.getItem('city-input');
     const apiKey = 'a3daa86f12fe3680bfa21c25ee469546';
-    const requestUrl = `api.openweathermap.org/data/2.5/forecast?id=${cityInput}&appid=${apiKey}`;
+    const requestUrl = `api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}`;
 
-    console.log(requestUrl);
-    // fetch(requestUrl).then(function(response) {
-    //     // if (response.status === 200) {
-
-    //     //     return response.json
-    //     // }
-    //     // else{
-    //     //     return console.log(error)
-    //     // }
-    //      console.log(response);
-    //      console.log('hello again1')
-    // });
+    fetch(requestUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('City not found');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Format JSON output for readability
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    })
+    .catch(error => {
+        document.getElementById('output').textContent = `Error: ${error.message}`;
+    });
+};
 
 
     console.log('hello again2')
-}
+
 
 
 fetchButton.addEventListener('click', cityInputFunc);
