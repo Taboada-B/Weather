@@ -4,3 +4,10 @@
 }
 
 
+.past_searches{
+    background-color: grey;
+    margin: 2px;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+}

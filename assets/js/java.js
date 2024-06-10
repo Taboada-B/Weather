@@ -129,7 +129,10 @@ function updatePastSearchList(cityList) {
     const pastSearchList = document.getElementById('pastSearch');
     pastSearchList.innerHTML = ''; // Clear the list
     cityList.forEach(city => {
+        //creating li, adding class 
         const listItem = document.createElement('li');
+        listItem.classList.add('past_searches');
+        // updating listItem with cities 
         listItem.textContent = city;
         pastSearchList.appendChild(listItem);
     });
@@ -137,8 +140,6 @@ function updatePastSearchList(cityList) {
 
 const fetchButton = document.getElementById('searchBtn');
 fetchButton.addEventListener('click', cityInputFunc);
-
-
 
 
 // api retunrs these:
