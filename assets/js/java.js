@@ -11,19 +11,17 @@ function cityInputFunc(event) {
     event.preventDefault();
     // accepting user input, removing white space, set to variable
     const cityInput = document.querySelector('#city-input').value.trim();
-    localStorage.setItem('city-input', cityInput);
     // adding input to the Selected city span
-    let spanEl = document.getElementById('city-output');
-    spanEl.textContent = cityInput;
-    apiFetch();
+    document.getElementById('city-output').textContent = cityInput;
+    apiFetch(cityInput);
 }
 
-function apiFetch() {
+function apiFetch(city) {
     // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
     // api key : a3daa86f12fe3680bfa21c25ee469546
     // obtained this code at url: https://openweathermap.org/forecast5
     // example call: api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&appid={API key}
-    let cityInput = localStorage.getItem('city-input');
+    let cityInput = city
     const apiKey = 'a3daa86f12fe3680bfa21c25ee469546';
     const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&units=imperial&appid=${apiKey}`;
 
@@ -42,6 +40,7 @@ function apiFetch() {
             // rendering no error if its working
             document.getElementById('error').textContent = 'no errors';
             renderData(data);
+            saveAndRender(data);
         })
         // catch all, display error 
         .catch(error => {
@@ -98,17 +97,43 @@ function renderData(data) {
     document.getElementById('wind5').textContent = `${data.list[39].wind.speed} mph`;
     document.getElementById('humidity5').textContent = `${data.list[39].main.humidity} %`;
     
-    // // Attempt to get from localStorage
-    // let pastSearches = localStorage.getItem('cityList');
-    // if (pastSearches === null || pastSearches === undefined) {
-    //     const pastSearches = [];
-    // }
-    // else {
-
-    // }
-
 }
 
+function saveAndRender(data) {
+    // Attempt to get past searches from localStorage
+    let pastSearches = localStorage.getItem('cityList');
+
+    // if pastSearches dne make an empty array
+    if (pastSearches === null || pastSearches === undefined) {
+        pastSearches = [];
+        // Parse the JSON string into an array
+    } else {
+        pastSearches = JSON.parse(pastSearches); 
+    }
+
+    // Add the new city name to the past searches array
+    const cityName = data.city.name;
+    // Check if the city name is not already in the list
+    if (!pastSearches.includes(cityName)) { 
+        pastSearches.push(cityName); 
+    }
+
+    // saving updated array
+    localStorage.setItem('cityList', JSON.stringify(pastSearches));
+    
+    updatePastSearchList(pastSearches);
+}
+
+// Function to update the past search list in the DOM
+function updatePastSearchList(cityList) {
+    const pastSearchList = document.getElementById('pastSearch');
+    pastSearchList.innerHTML = ''; // Clear the list
+    cityList.forEach(city => {
+        const listItem = document.createElement('li');
+        listItem.textContent = city;
+        pastSearchList.appendChild(listItem);
+    });
+}
 
 const fetchButton = document.getElementById('searchBtn');
 fetchButton.addEventListener('click', cityInputFunc);

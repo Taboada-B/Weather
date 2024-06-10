@@ -15,7 +15,7 @@
 <body class="container-fluid">
     <header class="container-fluid bg-dark text-light mb-2 p-3">
         <div class="d-flex">
-            <h1 class="align-items-end" >Weather Dashboard</h1>
+            <h1 class="align-items-end">Weather Dashboard</h1>
         </div>
     </header>
     <main>
@@ -26,12 +26,13 @@
                 <form id="cityForm">
                     <label for="city-input">Search for City, State:</label>
                     <input type="text" id="city-input" name="city-input" class="form-control"
-                        placeholder="ex: San Diego, California" required>
+                        placeholder="ex: Denver, Colorado" required>
+                    <!-- <input type="text" id="city-input" name="city-input" class="form-control"
+                        placeholder="ex: Denver, Colorado" required > -->
                     <button type="submit" class=" btn btn-primary m-2 p-1 " id="searchBtn">Search</button>
                 </form>
-                <!-- past searches list -->
+                <!-- past searches list dynamically add li -->
                 <ul id="pastSearch" class="container-fluid m-1 border-top p-1">
-                                       
 
                 </ul>
             </aside>
@@ -39,7 +40,7 @@
             <div class="col-md-8 m-1">
                 <div class="border m-1 p-2">
                     <h1>City: <span id="city-output"></span></h1>
-                    <h5>Today's Date: <span id="date0"></span>  </h5>
+                    <h5>Today's Date: <span id="date0"></span> </h5>
                     <p>Status: <span id="icon0"> </span></p>
                     <p>Temperature: <span id="curTemp"></span></p>
                     <p>Wind: <span id="curWind"></span> </p>
