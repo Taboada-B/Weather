@@ -27,7 +27,7 @@
                     <label for="city-input">Search for City:</label>
                     <input type="text" id="city-input" name="city-input" class="form-control"
                         placeholder="ex: San Diego" required>
-                    <button type="submit" class=" btn btn-secondary m-2 p-1 " id="searchBtn">Search</button>
+                    <button type="submit" class=" btn btn-primary m-2 p-1 " id="searchBtn">Search</button>
                 </form>
                 <!-- past searches list -->
                 <ul id="pastSearch" class="container-fluid m-1 border-top p-1">
@@ -47,19 +47,62 @@
             <div class="col-md-8 m-1">
                 <div class="border m-1 p-2">
                     <h1>Selected City: <span id="city-output"></span></h1>
-                    <h5>Today's Date: <span id="date2Day"></span> </h5>
+                    <h5>Today's Date: <span id="date0"></span> </h5>
                     <p>Temperature: <span id="curTemp"></span></p>
                     <p>Wind: <span id="curWind"></span> </p>
-                    <p>Humidty: <span id="curHumid"></span> </p>
+                    <p>Humidity: <span id="curHumid"></span> </p>
                     <p id="error"> </p>
                 </div>
                 <div class="border mt-2 p-2">
                     <h2>5 Day Forecast</h2>
-                    <ul>
-                        <ol>day1</ol>
-                        <ol>day1</ol>
-                        <ol>day1</ol>
-                        <ol>day1</ol>
+                    <ul class="p-2 list-inline">
+                        <ol class="list-inline-item border rounded p-2 col-2 forecast_containers text-white ">
+                            <ul class="m-0 p-0 text-start">
+                                <li id="day1"></li>
+                                <li id="img"></li>
+                                <li >Temp: <span id="temp1"></span> </li>
+                                <li >Wind: <span id="wind1"></span> </li>
+                                <li >Humidity: <span id="humidity1"></span> </li>
+                            </ul>
+                        </ol>
+                        <ol class="list-inline-item border rounded p-2 col-2 forecast_containers text-white ">
+                            <ul class="m-0 p-0 text-start">
+                                <li id="day2"></li>
+                                <li id="img"></li>
+                                <li >Temp: <span id="temp2"></span> </li>
+                                <li >Wind: <span id="wind2"></span> </li>
+                                <li >Humidity: <span id="humidity2"></span> </li>
+                            </ul>
+                        </ol>
+                        <ol class="list-inline-item border rounded p-2 col-2 forecast_containers text-white ">
+                            <ul class="m-0 p-0 text-start">
+                                <li id="day3"></li>
+                                <li id="img"></li>
+                                <li >Temp: <span id="temp3"></span> </li>
+                                <li >Wind: <span id="wind3"></span> </li>
+                                <li >Humidity: <span id="humidity3"></span> </li>
+                            </ul>
+                        </ol>
+                        <ol class="list-inline-item border rounded p-2 col-2 forecast_containers text-white ">
+                            <ul class="m-0 p-0 text-start">
+                                <li id="day4"></li>
+                                <li id="img"></li>
+                                <li >Temp: <span id="temp4"></span> </li>
+                                <li >Wind: <span id="wind4"></span> </li>
+                                <li >Humidity: <span id="humidity4"></span> </li>
+                            </ul>
+                        </ol>
+                        <ol class="list-inline-item border rounded p-2 col-2 forecast_containers text-white ">
+                            <ul class="m-0 p-0 text-start">
+                                <li id="day5"></li>
+                                <li id="img"></li>
+                                <li >Temp: <span id="temp5"></span> </li>
+                                <li >Wind: <span id="wind5"></span> </li>
+                                <li >Humidity: <span id="humidity5"></span> </li>
+                            </ul>
+                        </ol>
+                   
+
                     </ul>
                 </div>
             </div>

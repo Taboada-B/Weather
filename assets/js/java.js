@@ -46,12 +46,34 @@ function apiFetch() {
 
 function renderData(data){
 
- // rendering current data to page: current temp, current wind, current humidity, today's date.
+ // rendering current data to page: current temp, current wind, current humidity, today's date (day0).
             document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
             document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
             document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
-            document.getElementById('date2Day').textContent = `${data.list[0].main.humidity} %`;
+            document.getElementById('date0').textContent = `${data.list[0].main.humidity} %`;
 // rendering 5 day forcast
+// list[0] to list [1] is 3 hours list [0] to list [7] 24hrs
+// day1
+// document.getElementById('day1').textContent = 
+document.getElementById('temp1').textContent = `${data.list[7].main.temp} °F`;
+document.getElementById('wind1').textContent = `${data.list[7].wind.speed} mph`;
+document.getElementById('humidity1').textContent = `${data.list[7].main.humidity} %`;
+//day 2
+document.getElementById('temp2').textContent = `${data.list[15].main.temp} °F`;
+document.getElementById('wind2').textContent = `${data.list[15].wind.speed} mph`;
+document.getElementById('humidity2').textContent = `${data.list[15].main.humidity} %`;
+//day 3
+document.getElementById('temp3').textContent = `${data.list[23].main.temp} °F`;
+document.getElementById('wind3').textContent = `${data.list[23].wind.speed} mph`;
+document.getElementById('humidity3').textContent = `${data.list[23].main.humidity} %`;
+//day 4
+document.getElementById('temp4').textContent = `${data.list[31].main.temp} °F`;
+document.getElementById('wind4').textContent = `${data.list[31].wind.speed} mph`;
+document.getElementById('humidity4').textContent = `${data.list[31].main.humidity} %`;
+//day 5
+document.getElementById('temp5').textContent = `${data.list[39].main.temp} °F`;
+document.getElementById('wind5').textContent = `${data.list[39].wind.speed} mph`;
+document.getElementById('humidity5').textContent = `${data.list[39].main.humidity} %`;
 
 }
 
