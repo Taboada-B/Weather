@@ -11,7 +11,7 @@ function cityInputFunc(event) {
     // adding input to the Selected city span
     let spanEl = document.getElementById('city-output');
     spanEl.textContent = cityInput;
-    apiFetch()
+    apiFetch();
 }
 
 function apiFetch() {
@@ -20,7 +20,6 @@ function apiFetch() {
     // obtained this code at url: https://openweathermap.org/forecast5
     // example call: api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&appid={API key}
     let cityInput = localStorage.getItem('city-input');
-    console.log(cityInput)
     const apiKey = 'a3daa86f12fe3680bfa21c25ee469546';
     const requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&units=imperial&appid=${apiKey}`;
 
@@ -28,24 +27,27 @@ function apiFetch() {
         .then(response => {
             // if response isn't okay throw an error
             if (!response.ok) {
-                console.log('this is where errors happen')
                 throw new Error('City not found');
-
             }
-            console.log('if no errors happen')
+            console.log('if no errors happens');
             return response.json();
         })
         //if previous .then is successful, run this
         .then(data => {
-            // Format JSON output for readability
-            console.log(data)
+            // Data is an object with api response
+            document.getElementById('error').textContent = 'no errors';
+            console.log('the data', data);
+            // let jsonData = JSON.stringify(data, null, 2);
+            // console.log('json data', jsonData);
+            console.log('weather hopefully', data.list[0].main.temp)
 
-            console.log('is it working?', data.list.main.temp);
-            // document.getElementById('curTemp').textContent = JSON.stringify(data.list.main.temp);
-            // document.getElementById('curWind').textContent = JSON.stringify(data);
-            // document.getElementById('curHumid').textContent = JSON.stringify(data);
+            // console.log('is it working?', data.list.main.temp);
+            document.getElementById('curTemp').textContent = `${data.list[0].main.temp} °F`;
+            document.getElementById('curWind').textContent = `${data.list[0].wind.speed} mph`;
+            document.getElementById('curHumid').textContent = `${data.list[0].main.humidity} %`;
 
         })
+        // catch all, display error 
         .catch(error => {
             document.getElementById('error').textContent = `Error: ${error.message}`;
         });
